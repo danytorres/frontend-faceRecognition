@@ -14,6 +14,17 @@ class Upload extends Component {
     res: null
   };
 
+  handleReturn = (e) => {
+    this.setState({
+      name: "",
+      image: null, 
+      showLoad: false,
+      showEmotions: false,
+      showUpload: true,
+      res: null
+    })
+  }
+
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value,
@@ -78,7 +89,12 @@ class Upload extends Component {
             <input type="submit" />
           </form>
          </> : null}
-          {showEmotions ? <Emotions resData ={ res }/> : null}
+          {showEmotions ? <>
+          <Emotions resData ={ res }/>
+          <button type="button" 
+          className="btn btn-light mt-5" 
+          onClick={this.handleReturn}>Volver</button>
+          </> : null}
       </div>
     );
   }

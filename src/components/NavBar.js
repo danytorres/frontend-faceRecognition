@@ -7,7 +7,7 @@ export default class NavBar extends Component {
         return (
             <nav className="navbar navbar-dark bg-dark">
                 <div className="container">
-                    <Link className="navbar-brand" to="/">Subir Selfie</Link>
+                    <h1 className="navbar-brand">Subir Selfie</h1>
                 </div>
             </nav>
         )
