@@ -39,7 +39,7 @@ class Upload extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     this.setState({showLoad: true, showUpload: false});
     let form_data = new FormData();
     form_data.append("image", this.state.image, this.state.image.name);
@@ -52,7 +52,7 @@ class Upload extends Component {
         },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.setState({showEmotions: true, showLoad: false, res: res.data});
       })
       .catch((err) => console.log(err));
@@ -64,8 +64,10 @@ class Upload extends Component {
       <div className="container mt-5">
         {showLoad ? <LoadComponent /> : null}
         {showUpload ? <> 
+          <h2 className="display-4 text-center">Sube tu selfie y ve tus emociones</h2>
+          <div className="container-sm">
           <form onSubmit={this.handleSubmit}>
-            <p>
+            <div className="mb-3">
               <input
                 type="text"
                 placeholder="Name"
@@ -75,8 +77,8 @@ class Upload extends Component {
                 className="form-control"
                 required
               />
-            </p>
-            <p>
+            </div>
+            <div className="mb-3">
               <input
                 type="file"
                 id="image"
@@ -85,9 +87,10 @@ class Upload extends Component {
                 className="form-control"
                 required
               />
-            </p>
-            <input type="submit" />
+            </div>
+            <button type="submit" className="btn btn-light">Enviar</button>
           </form>
+          </div>
          </> : null}
           {showEmotions ? <>
           <Emotions resData ={ res }/>
