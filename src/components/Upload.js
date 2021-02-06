@@ -44,7 +44,7 @@ class Upload extends Component {
     let form_data = new FormData();
     form_data.append("image", this.state.image, this.state.image.name);
     form_data.append("name", this.state.name);
-    let url = "http://localhost:8000/api/face/";
+    let url = "https://www.danytorresdev.tk/api/face/";
     axios
       .post(url, form_data, {
         headers: {
