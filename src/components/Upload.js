@@ -52,7 +52,7 @@ class Upload extends Component {
         },
       })
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         this.setState({showEmotions: true, showLoad: false, res: res.data});
       })
       .catch((err) => console.log(err));
@@ -64,13 +64,13 @@ class Upload extends Component {
       <div className="container mt-5">
         {showLoad ? <LoadComponent /> : null}
         {showUpload ? <> 
-          <h2 className="display-4 text-center">Sube tu selfie y ve tus emociones</h2>
+          <h2 className="display-3 text-center">Sube tu selfie y ve tus emociones</h2>
           <div className="container-sm">
           <form onSubmit={this.handleSubmit}>
             <div className="mb-3">
               <input
                 type="text"
-                placeholder="Name"
+                placeholder="Nombre"
                 id="name"
                 value={this.state.name}
                 onChange={this.handleChange}

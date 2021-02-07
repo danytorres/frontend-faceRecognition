@@ -20,48 +20,48 @@ const Emotions = (props) => {
             {props.resData.emotions.anger ||
             props.resData.emotions.anger == 0 ? (
               <li className="list-group-item">
-                {"Enojo => " + props.resData.emotions.anger}
+                {"Enojo = " + props.resData.emotions.anger*100+"%"}
               </li>
             ) : null}
             {props.resData.emotions.contempt ||
             props.resData.emotions.contempt == 0 ? (
               <li className="list-group-item">
-                {"Desprecio => " + props.resData.emotions.contempt}
+                {"Desprecio = " + props.resData.emotions.contempt*100+"%"}
               </li>
             ) : null}
             {props.resData.emotions.disgust ||
             props.resData.emotions.disgust == 0 ? (
               <li className="list-group-item">
-                {"Asco => " + props.resData.emotions.disgust}
+                {"Asco = " + props.resData.emotions.disgust*100+"%"}
               </li>
             ) : null}
             {props.resData.emotions.fear || props.resData.emotions.fear == 0 ? (
               <li className="list-group-item">
-                {"Miedo => " + props.resData.emotions.fear}
+                {"Miedo = " + props.resData.emotions.fear*100+"%"}
               </li>
             ) : null}
             {props.resData.emotions.happiness ||
             props.resData.emotions.happiness == 0 ? (
               <li className="list-group-item">
-                {"Felicidad => " + props.resData.emotions.happiness}
+                {"Felicidad = " + props.resData.emotions.happiness*100+"%"}
               </li>
             ) : null}
             {props.resData.emotions.neutral ||
             props.resData.emotions.neutral == 0 ? (
               <li className="list-group-item">
-                {"Neutro => " + props.resData.emotions.neutral}
+                {"Neutro = " + props.resData.emotions.neutral*100+"%"}
               </li>
             ) : null}
             {props.resData.emotions.sadness ||
             props.resData.emotions.sadness == 0 ? (
               <li className="list-group-item">
-                {"Tristeza => " + props.resData.emotions.sadness}
+                {"Tristeza = " + props.resData.emotions.sadness*100+"%"}
               </li>
             ) : null}
             {props.resData.emotions.surprise ||
             props.resData.emotions.surprise == 0 ? (
               <li className="list-group-item">
-                {"Sorpresa => " + props.resData.emotions.surprise}
+                {"Sorpresa = " + props.resData.emotions.surprise*100+"%"}
               </li>
             ) : null}
           </ul>
