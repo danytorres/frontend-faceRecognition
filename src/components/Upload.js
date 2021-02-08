@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import LoadComponent from "./LoadComponent";
 import Emotions from "./Emotions";
+import Error from "./Error";
 
 class Upload extends Component {
 
@@ -11,7 +12,9 @@ class Upload extends Component {
     showLoad: false,
     showEmotions: false,
     showUpload: true,
-    res: null
+    res: null,
+    showError: false,
+    showBotton: false
   };
 
   handleReturn = (e) => {
@@ -21,8 +24,13 @@ class Upload extends Component {
       showLoad: false,
       showEmotions: false,
       showUpload: true,
-      res: null
-    })
+      res: null,
+      showError: false,
+      showBotton: false
+    });
+    axios.delete('https://www.danytorresdev.tk/api/delete/')
+    .then((res) => console.log(res.data))
+    .catch((err) => console.log(err));
   }
 
   handleChange = (e) => {
@@ -45,6 +53,7 @@ class Upload extends Component {
     form_data.append("image", this.state.image, this.state.image.name);
     form_data.append("name", this.state.name);
     let url = "https://www.danytorresdev.tk/api/face/";
+    // let url = 'http://localhost:8000/api/face/';
     axios
       .post(url, form_data, {
         headers: {
@@ -52,14 +61,17 @@ class Upload extends Component {
         },
       })
       .then((res) => {
-        console.log(res.data);
-        this.setState({showEmotions: true, showLoad: false, res: res.data});
+        console.log(res);
+        this.setState({showEmotions: true, showLoad: false, res: res.data, showBotton: true});
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err)
+        this.setState({showError:true, showLoad:false, showBotton: true});
+      });
   };
 
   render() {
-    const { showLoad, showUpload, showEmotions, res } = this.state;
+    const { showLoad, showUpload, showEmotions, res, showError, showBotton } = this.state;
     return (
       <div className="container mt-5">
         {showLoad ? <LoadComponent /> : null}
@@ -92,12 +104,13 @@ class Upload extends Component {
           </form>
           </div>
          </> : null}
+          {showError ? <Error /> : null}
           {showEmotions ? <>
           <Emotions resData ={ res }/>
-          <button type="button" 
-          className="btn btn-light mt-5" 
-          onClick={this.handleReturn}>Volver</button>
           </> : null}
+          {showBotton ? <><button type="button" 
+          className="btn btn-light mt-5" 
+          onClick={this.handleReturn}>Volver</button></>: null}
       </div>
     );
   }

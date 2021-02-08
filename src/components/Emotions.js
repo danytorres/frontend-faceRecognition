@@ -12,6 +12,7 @@ const Emotions = (props) => {
         <div className="col-md-4">
           <img
             src={"https://www.danytorresdev.tk" + props.resData.image}
+            // src={"http://localhost:8000" + props.resData.image}
             className="img-fluid"
           ></img>
         </div>

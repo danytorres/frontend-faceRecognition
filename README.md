@@ -15,3 +15,5 @@ La app usa una logica de una sola paguina donde solo se muestra y se oculta cada
 El componente Emotions.js es donde se muestra la imagen procesada que encuadra la cara y una lista de las emociones con mas valor.
 
 Se puede ver en consola el arreglo que retorna el backend.
+
+Al terminar de usar la imagen la elimina del servidor 
